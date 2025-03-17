@@ -1,0 +1,119 @@
+(footprint "C1206"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 -3 0)
+		(layer "F.SilkS")
+		(uuid "2c50923d-f51c-4807-aa89-a004a2210f36")
+		(effects
+			(font
+				(size 0.700554 0.700554)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "C1206"
+		(at 0 3 0)
+		(layer "F.Fab")
+		(uuid "269f4cb6-b6a0-4be2-bf65-e4b9ae406d8e")
+		(effects
+			(font
+				(size 0.500284 0.500284)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "63f9988f-8084-4c68-8e55-df825e60e70a")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "9ae3b70b-4e98-4a30-93ea-3e324903c46b")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "cef23bc8-16c8-4970-b905-e6c2fa00fa2d")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_line
+		(start -3 -1.5)
+		(end 3 -1.5)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "04a2ac90-1758-4b41-bf7e-d61e2bb75d50")
+	)
+	(fp_line
+		(start -3 1.5)
+		(end -3 -1.5)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "cdd87bd0-4930-40c4-9315-12944f5ed14c")
+	)
+	(fp_line
+		(start 3 -1.5)
+		(end 3 1.5)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "047b4dc9-40a6-4dd0-8963-7a58d241f556")
+	)
+	(fp_line
+		(start 3 1.5)
+		(end -3 1.5)
+		(stroke
+			(width 0.127)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "839d13ea-95c8-43ca-8d93-9f26574334dd")
+	)
+	(pad "1" smd rect
+		(at -1.651 0)
+		(size 1.27 2.032)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(solder_mask_margin 0.102)
+		(uuid "51e48d3d-5f70-4b2a-8e2b-fc0c8977e4c0")
+	)
+	(pad "2" smd rect
+		(at 1.651 0)
+		(size 1.27 2.032)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(solder_mask_margin 0.102)
+		(uuid "cab16b54-e89d-4d95-86de-c8c0b47189cb")
+	)
+)
