@@ -1,2 +1,9 @@
 # OSHE-RecycleBot
-The Home of the Open Source Hardware Enterprise's RecycleBot Project
+<p align="middle">
+  <img src="/Pictures/Extruder.jpg"/>
+  <img src="/Pictures/Extruder-With-Frame.jpg"/>
+  <img src="/Pictures/Cooling.jpg"/>
+  <img src="/Pictures/Rewind.jpg"/>
+  <img src="/Pictures/Sieve.jpg"/>
+  <img src="/Pictures/Vacuum.jpg"/>
+</p>
