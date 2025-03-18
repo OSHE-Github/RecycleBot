@@ -1,5 +1,7 @@
+#include "config.h"
 #include <Arduino.h>
 #include <ESP32-TWAI-CAN.hpp>
+#include <FastAccelStepper.h>
 
 int8_t sendFrame(uint16_t id, uint8_t dataLen, uint8_t* data){
   CanFrame txFrame = {0};
@@ -14,16 +16,34 @@ int8_t sendFrame(uint16_t id, uint8_t dataLen, uint8_t* data){
   return ESP32Can.writeFrame(txFrame);  // timeout defaults to 1 ms
 }
 
+uint8_t initCAN(){
+  if(ESP32Can.begin(ESP32Can.convertSpeed(500), CAN_TX, CAN_RX, 10, 10)) {
+      Serial.println("CAN bus started!");
+      return 1;
+  } else {
+      Serial.println("CAN bus failed!");
+      return 0;
+  }
+}
+
+// Function to convert 4 bytes to a float
+float bytesToFloat(byte* data) {
+  float value;
+  memcpy(&value, data, sizeof(value));
+  return value;
+}
+
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  Serial.begin(115200);
+
+  // print system info
+  Serial.printf("CPU Freq = %d Mhz\r\n", getCpuFrequencyMhz());
+  Serial.printf("XTAL Freq = %d Mhz\r\n", getXtalFrequencyMhz());
+  Serial.printf("APB Freq = %d Mhz\r\n", getApbFrequency());
+
+  initCAN();
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-}
-
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+  
 }
