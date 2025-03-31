@@ -2,14 +2,14 @@
 
 uint32_t curChannel;
 
-int channelPins[] = {0,1,2,3,A6,A7};     //First four channels are in the AD7193, the last two go to the terminals
-int sensorType[] = {THERMOCOUPLE_K,THERMOCOUPLE_K,THERMOCOUPLE_K,THERMOCOUPLE_K,PHOTORESISTOR,PHOTORESISTOR};  //Tracks what each channel is currently set to read, defaults given here
-int output[] = {CELSIUS,CELSIUS,CELSIUS,CELSIUS,LUX,LUX};    //Tracks current format of output for each channel
-bool activePins[] = {true,false,false,false,false,false};          //Tracks which channels are currently being used, 0 indicates not active
+int channelPins[] =   {0,       1,        2,        3,        A6,       A7};    //First four channels are in the AD7193, the last two go to the terminals
+int sensorType[] =    {0,       0,        0,        0,        INFIDEL,  0};  //Tracks what each channel is currently set to read, defaults given here
+int output[] =        {CELSIUS, CELSIUS,  CELSIUS,  CELSIUS,  MM,       LUX};   //Tracks current format of output for each channel
+bool activePins[] =   {false,   false,    false,    false,    true,     false}; //Tracks which channels are currently being used, 0 indicates not active
 
 LiquidCrystal lcd(0,1,5,6,7,8);   //Pins for controlling LCD screen
 
-// Define RTC objects
+// Define RTC objectsj
 RTClib myRTC;
 DS3231 setRTC;
 bool setTime = 0; // If 1 time will be set in the setup loop. Leave 0 once time is set
@@ -24,7 +24,7 @@ MCP_CAN CAN(CAN_SPI_CS);
 bool CANconn = 0;
 
 void setup() {
-  //Serial.begin(9600);
+  Serial.begin(9600);
 
   
   //For setting time on RTC
@@ -79,6 +79,8 @@ void setup() {
 }
 
 void loop() {
+  Serial.println(analogRead(A6));
+
   static float data;
   //Serial.print("Loop\n");
   for(uint32_t j = 0; j < 6; j++){
@@ -96,12 +98,17 @@ void loop() {
       sendCANData(&data,j);
       SDwrite(data,j);
 
+      Serial.println("sent can frame");
+
       delay(500);
     }
   }
 
+  Serial.print("data: ");
+  Serial.println(data);
+
   checkCAN();
-  delay(1000);
+  delay(500);
 
   //************************************************************************************
   //                          DO NOT DELETE DUPLICATE
@@ -129,12 +136,15 @@ void loop() {
     }
   }
 
-  delay(1000);
+  delay(500);
 }
 
 //Reads at the channel given for the type of sensor given
 float readSensor(int channelNumber){
   switch(sensorType[channelNumber]){
+    case INFIDEL:
+      return infidelOutput(channelNumber);
+      break;
     case THERMOCOUPLE_K:
       return thermocoupleKOutput(channelNumber);
       break;

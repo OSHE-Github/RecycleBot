@@ -1,6 +1,8 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
+#include "BREAD_CAN_Slices.h"
+
 //???????????????????????
 #define NUM_DCMT_SLICES 8
 #define NUM_RLHT_SLICES 8
@@ -43,8 +45,8 @@
 
 // CAN
 #define SLICE_DATA_INTERVAL_MS 1000 // CAN Bus Data Interval
-#define CAN_TX	35
-#define CAN_RX  34
+#define CAN_TX 25
+#define CAN_RX 26
 
 // ************************************
 // * Loaf V1 (Legacy) Specific Macros *

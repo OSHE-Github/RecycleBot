@@ -23,4 +23,5 @@ const unsigned int ESTABLISH_ID = 0x7;
 const unsigned int COLOR_INTEGRATION = 0x0;
 const unsigned int OBJECT_DETECTION = 0x1;
 const unsigned int SPECTROMETER = 0x2;
+
 #endif
