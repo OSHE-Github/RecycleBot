@@ -1,4 +1,4 @@
-#ifndef BREAD_CAN_SLICES_Hc:\Users\jklap\Downloads\main.cpp
+#ifndef BREAD_CAN_SLICES_H
 #define BREAD_CAN_SLICES_H
 
 //Stores codes for slices that have implemented the CAN protocol

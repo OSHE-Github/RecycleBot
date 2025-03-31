@@ -28,12 +28,14 @@
 //When adding new sensors or outputs, add to the start of the list with an increased number
 //Outputs have two digits due to these being used in case statements, meaning they all need to be different
 //---------------SENSORS----------------------
+#define INFIDEL 4
 #define THERMOCOUPLE_K 3
 #define CURRENT 2
 #define PHOTORESISTOR 1
 #define NULL_S 0
 
 //---------------OUTPUTS----------------------
+#define MM 13 // Absolutely zero clue what this is for
 #define CELSIUS 12
 #define FAHRENHEIT 11
 #define NULL_T 10
@@ -67,5 +69,7 @@ float power_series(int n, float input, float coef[]);
 //float currentOutput();
 
 float photoresistorOutput(int terminal);
+
+float infidelOutput(int channelNumber);
 
 #endif

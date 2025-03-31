@@ -88,7 +88,7 @@ void checkCAN(){
 }
 
 //Sends data on CAN line for any slices that want it to read
-void sendCANData(void* data,uint32_t channel){
+void sendCANData(void* data, uint32_t channel){
   //if(CANconn == 1){
     //Sends data type in first byte, then channel number in second byte, then units in the third byte, then float data value in final 4 bytes
     //Any recipients will need at least part of BREAD_DAQ.h
