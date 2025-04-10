@@ -118,8 +118,8 @@ void setup() {
   }
 }
 
-int stepsPerSec = 20 * 16; // initial speed to pull perfect 1.75mm filament in steps/sec (x16 for microstepping)
-const int deltaStepsPerSec = 5; // amount to change speed by to correct
+int stepsPerSec = 17 * 16; // initial speed to pull perfect 1.75mm filament in steps/sec (x16 for microstepping)
+const int deltaStepsPerSec = 2; // amount to change speed by to correct
 const int speedChangeDelay = 10000; // delay between speed changes in miliseconds
 int lastSpeedChange = 0; // last time speed was changed
 
@@ -153,10 +153,10 @@ void loop() {
 
   // update speed if it has been long enough
   if(millis() - lastSpeedChange > speedChangeDelay) {
-    if(diameterAverage <= targetDiameter - 0.02) { // if filament is <= 1.73mm
+    if(diameterAverage <= targetDiameter - 0.005) { // if filament is <= 1.745mm
       stepsPerSec - deltaStepsPerSec; // slow down for thicker filament
     }
-    else if (diameterAverage <= targetDiameter + 0.02) { // if filament is <= 1.77mm
+    else if (diameterAverage <= targetDiameter + 0.005) { // if filament is <= 1.755mm
       stepsPerSec + deltaStepsPerSec; // speed up for thicker filament
     }
   }
@@ -166,4 +166,5 @@ void loop() {
   stepper->runForward();
 
   printf("Current Speed (steps/sec) : %d\n", stepsPerSec);
+  printf("Current diameter average (mm): %f\n", diameterAverage);
 }
