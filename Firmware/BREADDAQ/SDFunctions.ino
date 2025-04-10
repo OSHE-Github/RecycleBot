@@ -83,6 +83,9 @@ void SDwrite(float data,uint32_t channel){
       //sprintf(outputStr,"lux ");
       outputStr = "lux";
       break;
+    case MM:
+      outputStr = "mm"
+      break;
     default:
       SPI.end();
       return;
@@ -230,4 +233,4 @@ void SDwriteVision(unsigned char len, unsigned char buf[]){
   }
   dataFile.println();
   dataFile.flush();
-}
+}
